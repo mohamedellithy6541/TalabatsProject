@@ -29,6 +29,7 @@ namespace Talabats
                 {
                     var context = services.GetRequiredService<ApplicationContext>();
                     await context.Database.MigrateAsync(); //To update Database 
+                   await ApplicationContextSeed.SeedDataAsync(context);
                 }
                 catch (Exception ex)
                 { 
