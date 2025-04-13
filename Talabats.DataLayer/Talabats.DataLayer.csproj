@@ -6,8 +6,4 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\Talabats.RepositoryLayer\Talabats.RepositoryLayer.csproj" />
-  </ItemGroup>
-
 </Project>

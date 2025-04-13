@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Talabats.RepositoryLayer.Entities
+namespace Talabats.DataLayer.Entities
 {
-    public class BaseEntities
+    public class ProductType: BaseEntities
     {
-        public int Id { get; set; }
+        public string Name { get; set; }
     }
 }

@@ -1,7 +1,7 @@
 using Microsoft.EntityFrameworkCore;
-using Talabats.DataLayer.Implimentions;
 using Talabats.DataLayer.Repositories;
 using Talabats.RepositoryLayer.Data;
+using Talabats.RepositoryLayer.Implimentions;
 
 namespace Talabats
 {
@@ -18,8 +18,10 @@ namespace Talabats
             builder.Services.AddSwaggerGen();
             builder.Services.AddDbContext<ApplicationContext>(
              option => option.UseSqlServer(builder.Configuration.GetConnectionString("conf")));
-          
-            builder.Services.AddScoped<IProductRepository, ProductRepository>();
+
+            builder.Services.AddScoped(typeof(IGenaricrepository<>),typeof(GenaricRepository<>));
+            //builder.Services.AddScoped<IProductRepository, ProductRepository>();
+
             var app = builder.Build();
             using var scope = app.Services.CreateScope();
             {

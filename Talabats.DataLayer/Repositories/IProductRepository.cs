@@ -3,17 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Talabats.RepositoryLayer.Entities;
+using Talabats.DataLayer.Entities;
 
 namespace Talabats.DataLayer.Repositories
 {
-    public interface IProductRepository
+    public interface IProductRepository:IGenaricrepository<Product>
     {
-       Task<IEnumerable<Product>> GetAll();
-       Task<Product> Get(int id);
-       Task AddProduct(Product items);
-       Task<Product> updateProduct(Product items);
-       Task<Product> DeleteProduct(int id);
-       
     }
 }

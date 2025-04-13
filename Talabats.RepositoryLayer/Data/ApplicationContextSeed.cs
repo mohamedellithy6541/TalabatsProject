@@ -1,21 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Text.Json;
-using System.Threading.Tasks;
-using Talabats.RepositoryLayer.Entities;
+﻿using System.Text.Json;
+using Talabats.DataLayer.Entities;
 
 namespace Talabats.RepositoryLayer.Data
 {
     public class ApplicationContextSeed
     {
-        public static async Task SeedDataAsync(ApplicationContext context) 
+        public static async Task SeedDataAsync(ApplicationContext context)
         {
-			try
-			{
-				if (! context.productBrands.Any())
-				{
+            try
+            {
+                if (!context.productBrands.Any())
+                {
                     var Data = File.ReadAllText("../Talabats.RepositoryLayer/DataSeed/brands.json");
                     var brands = JsonSerializer.Deserialize<List<ProductBrand>>(Data);
                     foreach (var brand in brands)
@@ -23,7 +18,7 @@ namespace Talabats.RepositoryLayer.Data
                     await context.SaveChangesAsync();
                 }
                 if (!context.productTypes.Any())
-				{
+                {
                     var Data = File.ReadAllText("../Talabats.RepositoryLayer/DataSeed/types.json");
                     var types = JsonSerializer.Deserialize<List<ProductType>>(Data);
                     foreach (var type in types)
@@ -31,7 +26,7 @@ namespace Talabats.RepositoryLayer.Data
                     await context.SaveChangesAsync();
                 }
                 if (!context.products.Any())
-				{
+                {
                     var Data = File.ReadAllText("../Talabats.RepositoryLayer/DataSeed/products.json");
                     var products = JsonSerializer.Deserialize<List<Product>>(Data);
                     foreach (var product in products)
@@ -40,12 +35,12 @@ namespace Talabats.RepositoryLayer.Data
                 }
 
 
-			}
-			catch (Exception ex) 
-			{
+            }
+            catch (Exception ex)
+            {
 
-			  throw ex;
-			}
+                throw ex;
+            }
 
         }
     }
